@@ -5,11 +5,19 @@ if command -v fastfetch &> /dev/null; then
     fi
 fi
 
-
+#SHORTCUTS
 alias h="history | grep "
 alias ezsh="nano ~/.zshrc"
 alias cls='clear'
 
+#gitclone
+gclone() {
+  if [ "$#" -eq 0 ]; then
+    echo "Uso: gclone <nome-do-repositorio>"
+    return 1
+  fi
+  git clone git@github-443:dinizjp/"$1".git
+}
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -17,24 +25,10 @@ alias cls='clear'
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
+
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="clean"
+ZSH_THEME="agnoster"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -44,17 +38,18 @@ ZSH_THEME="clean"
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
 
+
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+#DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -146,4 +141,4 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export EDITOR="nano"
 export VISUAL="nano"
 
-
+DEFAULT_USER prompt_context(){}
